@@ -29,33 +29,8 @@ const recentLessons = [
 
 export default function LessonsPage() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
-      <div className="flex min-h-screen">
-        {/* Sidebar */}
-        <aside className="hidden w-72 border-r border-slate-200 bg-white px-6 py-6 lg:block">
-          <div className="mb-10 flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-600 text-lg font-bold text-white">
-              TM
-            </div>
-            <div>
-              <h1 className="text-xl font-bold">TutorMate</h1>
-              <p className="text-sm text-slate-500">Tutor Dashboard</p>
-            </div>
-          </div>
+    <>
 
-          <nav className="space-y-2">
-            <SidebarLink href="/dashboard" label="Dashboard" />
-            <SidebarLink href="/dashboard/students" label="Students" />
-            <SidebarLink href="/dashboard/lessons" label="Lessons" active />
-            <SidebarLink href="/dashboard/timesheets" label="Timesheets" />
-            <SidebarLink href="/dashboard/progress" label="Progress" />
-            <SidebarLink href="/dashboard/ai-assistant" label="AI Assistant" />
-            <SidebarLink href="/dashboard/settings" label="Settings" />
-          </nav>
-        </aside>
-
-        {/* Main Content */}
-        <section className="flex-1 px-6 py-6 lg:px-10">
           <header className="mb-8 rounded-3xl bg-white p-6 shadow-sm">
             <p className="text-sm font-medium text-blue-600">Lessons</p>
             <h2 className="mt-1 text-3xl font-bold">Track lesson details</h2>
@@ -277,9 +252,7 @@ export default function LessonsPage() {
               </table>
             </div>
           </section>
-        </section>
-      </div>
-    </main>
+    </>
   );
 }
 
@@ -295,28 +268,5 @@ function FormGroup({
       <span className="text-sm font-semibold text-slate-700">{label}</span>
       <div className="mt-2">{children}</div>
     </label>
-  );
-}
-
-function SidebarLink({
-  href,
-  label,
-  active = false,
-}: {
-  href: string;
-  label: string;
-  active?: boolean;
-}) {
-  return (
-    <Link
-      href={href}
-      className={`block w-full rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
-        active
-          ? "bg-blue-600 text-white shadow-sm"
-          : "text-slate-600 hover:bg-slate-100"
-      }`}
-    >
-      {label}
-    </Link>
   );
 }
